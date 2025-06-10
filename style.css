@@ -341,9 +341,6 @@ form input[type="file"]:hover::file-selector-button {
     .header-content {
         padding: 10px 6px;
     }
-    .hero-overlay h2 {
-        font-size: 3em;
-    }
     .invoice-header .logo {
         width: 70px !important;
         height: 70px !important;
@@ -352,9 +349,6 @@ form input[type="file"]:hover::file-selector-button {
 @media (max-width: 700px) {
     .container, #invoice-preview {
         padding: 7px 2px;
-    }
-    .hero-overlay h2 {
-        font-size: 4em;
     }
     .invoice-header {
         flex-direction: column;
@@ -365,11 +359,11 @@ form input[type="file"]:hover::file-selector-button {
         width: 100%;
     }
     .hero-section, .hero-overlay {
-        min-height: 100vh;
-        padding: 2px 5px;
+        min-height: 60vh;
+        padding: 20px 5px;
     }
     .hero-overlay h2 {
-        font-size: 3em;
+        font-size: 1.3em;
     }
     .site-title {
         font-size: 1.2em;
@@ -394,7 +388,7 @@ form input[type="file"]:hover::file-selector-button {
         font-size: 1em;
     }
     .hero-overlay h2 {
-        font-size: 2em;
+        font-size: 1em;
     }
     .hero-btn {
         font-size: 0.95em;
@@ -423,7 +417,7 @@ form input[type="file"]:hover::file-selector-button {
         padding: 1px 0;
     }
     .hero-overlay h2 {
-        font-size: 2em;
+        font-size: 0.9em;
     }
     .hero-btn {
         font-size: 0.85em;
@@ -515,14 +509,4 @@ body, input, button, select, textarea {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
     box-shadow: none !important;
-}
-.footer-link {
-    color: #ff6f00;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s;
-}
-.footer-link:hover {
-    color: #be5200;
-    text-decoration: underline;
 } 
