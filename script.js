@@ -189,8 +189,6 @@ function updatePreview() {
                 width: 100%;
             }
         }
-    }
-
     </style>
 
     <div class="invoice-container">
@@ -248,10 +246,12 @@ function updatePreview() {
         </div>
 
         <div class="footer-note">Powered By Spartan</div>
+        <img src="asset/paid.png" alt="Paid" class="paid-stamp" style="display: none;">
     </div>
 `;
 
-
+    // Mettre à jour l'affichage du tampon "Paid" après la génération du HTML
+    updatePaidStamp();
 }
 
 // Update preview on every field change
@@ -269,6 +269,14 @@ updatePreview();
 window.jsPDF = window.jspdf.jsPDF;
 document.getElementById('generatePDF').onclick = function() {
     const preview = document.getElementById('invoice-preview');
+    const clientName = document.getElementById('clientName').value;
+    const today = new Date();
+    const dateStr = today.toISOString().split('T')[0]; // Format YYYY-MM-DD
+    
+    // Créer un nom de fichier sécurisé
+    const safeClientName = clientName.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+    const fileName = `invoice_${safeClientName}_${dateStr}.pdf`;
+
     // Forcer le rendu desktop
     preview.classList.add('pdf-export');
     setTimeout(() => {
@@ -279,7 +287,7 @@ document.getElementById('generatePDF').onclick = function() {
             const imgWidth = pageWidth - 40;
             const imgHeight = canvas.height * imgWidth / canvas.width;
             pdf.addImage(imgData, 'PNG', 20, 20, imgWidth, imgHeight);
-            pdf.save('invoice.pdf');
+            pdf.save(fileName);
             // Retirer le mode desktop
             preview.classList.remove('pdf-export');
         });
@@ -317,4 +325,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, { threshold: 0.15 });
     scrollElements.forEach(el => observer.observe(el));
-}); 
+});
+
+// Fonction pour mettre à jour l'affichage du tampon "Paid"
+function updatePaidStamp() {
+    const amountPaid = parseFloat(document.getElementById('amountPaid').value) || 0;
+    let subtotal = 0;
+    items.forEach(item => {
+        subtotal += (item.qty * item.unit);
+    });
+    const totalAmount = subtotal;
+    const paidStamp = document.querySelector('.paid-stamp');
+    
+    if (paidStamp) {  // Vérifier si l'élément existe
+        if (amountPaid >= totalAmount && totalAmount > 0) {
+            paidStamp.style.display = 'block';
+        } else {
+            paidStamp.style.display = 'none';
+        }
+    }
+}
+
+// Ajouter l'écouteur d'événement pour le champ amountPaid
+document.getElementById('amountPaid').addEventListener('input', updatePaidStamp);
+
+// Modifier la fonction calculateTotal
+function calculateTotal() {
+    let subtotal = 0;
+    items.forEach(item => {
+        subtotal += (item.qty * item.unit);
+    });
+    return subtotal;
+} 
