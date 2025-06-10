@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Creator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body, input, button, select, textarea {
+            font-family: 'SF Pro Text', 'San Francisco', 'Segoe UI', 'Arial', 'system-ui', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content"><h1>N</h1>
+            <span class="site-title">voice</span>
+        </div>
+    </header>
+    <section class="hero-section">
+        <div class="hero-overlay scroll-animate">
+            <h2>Create professional invoices in seconds</h2>
+            <p>Customize, preview, and download your invoice as PDF.</p>
+            <button class="hero-btn" onclick="document.getElementById('invoice-form').scrollIntoView({behavior: 'smooth'});">Create your invoice</button>
+        </div>
+    </section>
+    <div class="container scroll-animate">
+        <h1>Create an Invoice</h1>
+        <div style="margin-bottom: 18px; font-weight: bold; font-size: 1.1em;">
+            Invoice No: <span id="invoiceNumber"></span>
+        </div>
+        <form id="invoice-form">
+            <fieldset>
+                <legend>Company Information</legend>
+                <input type="text" id="companyName" placeholder="Company Name" required>
+                <input type="text" id="companyAddress" placeholder="Company Address" required>
+                <input type="text" id="companyPhone" placeholder="Phone" required>
+                <input type="email" id="companyEmail" placeholder="Email" required>
+                <input type="file" id="companyLogo" accept="image/*">
+            </fieldset>
+            <fieldset>
+                <legend>Client Information</legend>
+                <input type="text" id="clientName" placeholder="Recipient Name" required>
+                <input type="text" id="clientAddress" placeholder="Recipient Address" required>
+            </fieldset>
+            <fieldset>
+                <legend>Items</legend>
+                <div id="items"></div>
+                <button type="button" id="addItem">Add Item</button>
+            </fieldset>
+            <fieldset>
+                <legend>Payment</legend>
+                <input type="number" id="amountPaid" placeholder="Amount Paid" min="0" value="0">
+                <select id="currency">
+                    <option value="$">USD ($)</option>
+                    <option value="€">EUR (€)</option>
+                    <option value="£">GBP (£)</option>
+                    <option value="C$">CAD (C$)</option>
+                    <option value="¥">JPY (¥)</option>
+                    <option value="₣">CHF (₣)</option>
+                    <option value="₽">RUB (₽)</option>
+                    <option value="₹">INR (₹)</option>
+                    <option value="₩">KRW (₩)</option>
+                    <option value="R$">BRL (R$)</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <legend>Authorized Signature</legend>
+                <input type="file" id="signature" accept="image/*">
+            </fieldset>
+            <button type="button" id="generatePDF">Generate PDF</button>
+        </form>
+        <hr>
+        <div id="invoice-preview">
+            <!-- The invoice preview will be generated here -->
+        </div>
+    </div>
+    <footer class="site-footer scroll-animate">
+        © 2024 Nvoice. All rights reserved. | Powered by <a href="https://gourde.io" target="_blank" rel="noopener" class="footer-link">Gourde</a>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
