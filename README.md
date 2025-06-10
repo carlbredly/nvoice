@@ -94,21 +94,21 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter)
+instagram - [@carlbredly.raw](https://www.instagram.com/carlbredly.raw?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==)
 Project Link: [https://github.com/carlbredly/nvoice.git](https://github.com/carlbredly/nvoice.git)
 
 ## Screenshots
 
 ### Desktop View
-![Desktop View](screenshots/desktop.png)
+![Desktop View](asset/desktop.png)
 *Main interface of Nvoice on desktop*
 
 ### Mobile View
-![Mobile View](screenshots/mobile.png)
+![Mobile View](asset/mobile.png)
 *Responsive design on mobile devices*
 
 ### PDF Preview
-![PDF Preview](screenshots/pdf-preview.png)
+![PDF Preview](asset/pdf-preview.png)
 *Generated PDF invoice preview*
 
 
