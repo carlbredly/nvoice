@@ -100,7 +100,7 @@ Project Link: [https://github.com/carlbredly/nvoice.git](https://github.com/carl
 ## Screenshots
 
 ### Desktop View
-![Desktop View](asset/desktop.png)
+![Desktop View](asset/dekstop.png)
 *Main interface of Nvoice on desktop*
 
 ### Mobile View
